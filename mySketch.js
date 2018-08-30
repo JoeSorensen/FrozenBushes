@@ -133,7 +133,7 @@ function draw() {
   text("Click and drag the mouse\nPress any key (besides spacebar) to change to fill/stroke", width/2, height-40);
   text("Orginally by Jason Labbe | Modified by Joe Sorensen", width/2, height-17)
 
-  if (useRandom == true){
+  if (useRandom){
     var xran = Math.floor(Math.random() * (windowWidth - 1 + 1)) + 1;
     var yran = Math.floor(Math.random() * (windowHeight - 1 + 1)) + 1;
     var subs = Math.floor(Math.random() * (50 - 0 + 1)) + 0;
@@ -141,8 +141,8 @@ function draw() {
     var tran = Math.floor(Math.random() * (40 - 0 + 1)) + 1;
     if (tran == 1){
       for (i = 0; i < subs; i++){
-        allParticles.push(new Particle(xran-subs, yran+subs, maxLevel));
-        allParticles.push(new Particle(xran+subs, yran-subs, maxLevel));
+        allParticles.push(new Particle(xran-subs+i, yran+subs-i, maxLevel));
+        allParticles.push(new Particle(xran+subs-i, yran-subs+i, maxLevel));
         allParticles.push(new Particle(xran+subs, yran/subs+xran, maxLevel));
         allParticles.push(new Particle(xran-subs, yran/subs-xran, maxLevel));
       }
